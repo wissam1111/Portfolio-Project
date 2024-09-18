@@ -1,0 +1,12 @@
+
+{
+  "posts": [
+    { "id": 1,
+     "title": "First Post",
+      "content": "Summary of the first post",
+       "liked": false }
+  ],
+  "comments": [
+    { "id": 1, "postId": 1, "text": "Great post!" }
+  ]
+}
