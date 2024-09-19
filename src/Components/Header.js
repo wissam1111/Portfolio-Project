@@ -4,7 +4,6 @@ const Header = () => {
   return (
     <Router>
     <header className="text-blue-500 bg-white flex items-center space-x-96 p-5 pl-36 flex-wrap">
-
         <div className="text-4xl p-2">
           <h1>My portfolio</h1>
           </div>

@@ -13,18 +13,21 @@ export default function App(){
   const [comments,setComments]= useState([]);
 
   useEffect(()=>{
-    const fetchPosts = async ()=>{
+    async function fetchPosts() {
       try{
-        const response = await axios.get('http://localhost:5000/posts');
-        setPosts(response.data);
+        const response = await fetch('http://localhost:5000/posts');
+        const data= await response.json();
+        setPosts(data);
       }catch(error){
         console.error('Error fetching posts',error);
       }
     } 
-    const fetchComments = async()=>{
+
+    async function fetchComments() {
       try{
-      const response = await axios.get('http://localhost:5000/comments');
-      setComments(response.data);
+      const response = await fetch('http://localhost:5000/comments');
+      const data = await response.json();
+      setComments(data);
     }catch(error){
       console.error('Error fetching comments',error);
     }
@@ -33,13 +36,26 @@ export default function App(){
  fetchComments();
 },[]);
 
+  useEffect(()=>{
+  const intervalId = setInterval(async()=>{
+    try{
+      const response = await axios.get('http://localhost:5000/comments');
+      setComments(response.data);
+    }catch(error){
+      console.error('Error fetching comments',error);
+    }
+  },5000)
+
+    return ()=>clearInterval(intervalId);
+  },[]);
+
   const handleLike = (id) => {
     setPosts(posts.map(post => post.id === id ? { ...post, liked: !post.liked } : post));
   };
 
   const handleAddPost = async (newPost) => {
     try {
-      const response = await axios.post('http://localhost:5000/posts', newPost);
+      const response = await axios.post('http://localhost:5000/posts',newPost);
       setPosts([...posts, response.data]);
     } catch (error) {
       console.error('Error adding post:', error);
@@ -50,22 +66,36 @@ export default function App(){
     <div>
       <Header />
       <ProfileCard/>
+      
       <main className="p-4">
+
         <AddPostForm onAdd={handleAddPost} />
-        {posts.map(post => (
-          <BlogPostPreview
-            key={post.id}
-            title={post.title}
-            content={post.content}
-            onLike={() => handleLike(post.id)}/>
-        ))}
-        <div>
-          <h2 className='text-lg font-bold mb-2'>Comments:</h2>
-          {comments.map((comment)=>{
-            <CommentPreview key={comment.id} comment={comment.text}/>
-            {}
-          })}
-        </div>
+
+        {/* Rendering fetched posts */}
+        <h2 className="text-lg font-bold mb-2">Blog Posts:</h2>
+        {posts.length > 0 ? (
+          posts.map(post => (
+            <BlogPostPreview
+              key={post.id}
+              title={post.title}
+              content={post.content}
+              onLike={() => handleLike(post.id)}/>
+          ))
+        ) : (
+          <p>No blog posts found.</p>
+        )}
+         {/* Rendering fetched comments */}
+        <h2 className="text-lg font-bold mb-2 mt-4">Comments:</h2>
+        {comments.length > 0 ? (
+          comments.map(comment => (
+            <CommentPreview 
+              key={comment.id} 
+              comment={comment.text} // fixed the prop name
+            />
+          ))
+        ) : (
+          <p>No comments found.</p>
+        )}
 
         <h1 className='text-center text-4xl font-semibold text-blue-800 mt-10 '>Recent Blog</h1>
 
