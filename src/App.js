@@ -11,6 +11,20 @@ import CommentPreview from './Components/CommentPreview';
 export default function App(){
   const [posts, setPosts] = useState([]);
   const [comments,setComments]= useState([]);
+  const [weather ,setWeather] = useState(null);
+  const [city, setCity] = useState('');
+  const weatherApi = 'b5e30b360a02321e8c98d81543f062c0'
+useEffect(()=>{
+  const fetchWeather = async ()=>{
+    try{
+    const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApi}`);
+    setWeather(response.data);
+    }catch(error){
+      console.error('Error fetching weather data',error);
+    }
+  }
+  fetchWeather();
+},[city])
 
   useEffect(()=>{
     async function fetchPosts() {
@@ -96,6 +110,23 @@ export default function App(){
         ) : (
           <p>No comments found.</p>
         )}
+          <div className="mt-7 flex flex-col justify-center items-center">
+          <h2 className="text-lg font-bold mb-2">Weather:</h2>
+          <input
+            type="text"
+            value={city}
+            onChange={(e)=>setCity(e.target.value)}
+            placeholder="Enter city name"
+            className="border p-2 mb-2"
+          />
+          {weather && (
+            <div>
+              <h3 className="text-lg font-bold">Current Weather in {weather.name}:</h3>
+              <p>Temperature: {weather.main.temp}°C</p>
+              <p>Weather: {weather.weather[0].description}</p>
+            </div>
+          )}
+        </div>
 
         <h1 className='text-center text-4xl font-semibold text-blue-800 mt-10 '>Recent Blog</h1>
 
