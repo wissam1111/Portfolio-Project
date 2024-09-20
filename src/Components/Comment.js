@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CommentPreview = (props) => {
+const Comment = (props) => {
   return (
     <div className="border p-2 mb-2 rounded-md bg-gray-100">
       <p>{props.comment}</p>
@@ -8,4 +8,4 @@ const CommentPreview = (props) => {
   );
 };
 
-export default CommentPreview;
+export default Comment;

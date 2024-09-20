@@ -1,4 +1,3 @@
-// src/components/AddBlogPostForm.js
 import React, { useState } from 'react';
 
 export default function AddPostForm({ onAdd }){

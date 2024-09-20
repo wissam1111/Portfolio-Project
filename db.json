@@ -1,32 +1,75 @@
 {
   "posts": [
     {
+      "likes": 7,
       "id": "1",
-      "title": "First Post",
-      "content": "Summary of the first post",
-      "liked": false
+      "content": "any",
+      "title": "any"
     },
     {
       "id": "e8db",
       "title": "My Portfolio",
-      "content": "here we can discute my skills and experience in web dev (front end)"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "postId": 1,
-      "text": "Great post!"
+      "content": "here we can discute my skills and experience in web dev (front end)",
+      "likes": 2
     },
     {
-      "id": "2",
-      "postId": 2,
-      "text": "Good work!"
+      "id": "6855",
+      "title": "ijveg",
+      "content": "bejbu",
+      "likes": 6
     },
     {
-      "id": "3",
-      "postId": 3,
-      "text": "test intervalId work after 5 sec"
+      "id": "beb0",
+      "title": "i",
+      "content": "ujn",
+      "likes": 9,
+      "comment": []
+    },
+    {
+      "id": "82f9",
+      "title": "fmejrmig",
+      "content": "ebt",
+      "likes": 7
+    },
+    {
+      "likes": 13,
+      "id": "3a0b"
+    },
+    {
+      "likes": 3,
+      "id": "65d4"
+    },
+    {
+      "likes": 6,
+      "id": "79d6"
+    },
+    {
+      "likes": 7,
+      "id": "6466"
+    },
+    {
+      "likes": null,
+      "id": "dbb9"
+    },
+    {
+      "likes": null,
+      "id": "fe27"
+    },
+    {
+      "likes": null,
+      "id": "08c4"
+    },
+    {
+      "likes": null,
+      "id": "f98d"
+    },
+    {
+      "likes": null,
+      "id": "6fc8"
+    },
+    {
+      "likes": null,
+      "id": "e52b"
     }
   ]
 }
