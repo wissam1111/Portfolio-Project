@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function BlogPostPreview({ id, title, content, likes, comments, onLike }) {
+function BlogPostPreview({ id, title, content, likes, onLike }) {
   const [currentLikes, setCurrentLikes] = useState(likes || 0); // Initialize likes with props
 
   useEffect(() => {

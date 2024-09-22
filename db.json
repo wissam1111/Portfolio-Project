@@ -1,75 +1,76 @@
 {
   "posts": [
     {
-      "likes": 7,
-      "id": "1",
-      "content": "any",
-      "title": "any"
-    },
-    {
-      "id": "e8db",
-      "title": "My Portfolio",
-      "content": "here we can discute my skills and experience in web dev (front end)",
+      "id": "3b81",
+      "title": " The Beauty of Nature",
+      "content": "Nature is a wonderful source of inspiration. From majestic mountains to serene lakes, the beauty of the natural world can be a soothing escape from daily life.",
       "likes": 2
     },
     {
-      "id": "6855",
-      "title": "ijveg",
-      "content": "bejbu",
-      "likes": 6
+      "id": "d340",
+      "title": "Exploring New Technologies",
+      "content": "In today's rapidly changing world, technology is evolving at an unprecedented rate. Exploring new technologies can open up exciting opportunities and innovations.",
+      "likes": 1
     },
     {
-      "id": "beb0",
-      "title": "i",
-      "content": "ujn",
-      "likes": 9,
-      "comment": []
+      "id": "4b31",
+      "title": "The Importance of Mental Health",
+      "content": "Mental health is just as important as physical health. Taking care of your mind through self-care, therapy, and community support can lead to a fulfilling life.",
+      "likes": 2
     },
     {
-      "id": "82f9",
-      "title": "fmejrmig",
-      "content": "ebt",
-      "likes": 7
+      "id": "301f",
+      "title": "Travel: A Journey of Discovery",
+      "content": "Traveling exposes you to new cultures, cuisines, and experiences. Each journey brings new lessons and memories that enrich our lives.",
+      "likes": 3
     },
     {
-      "likes": 13,
-      "id": "3a0b"
+      "id": "7155",
+      "title": "The Art of Cooking",
+      "content": "Cooking is an art that brings people together. Experimenting with flavors and techniques can turn simple ingredients into a masterpiece.\n",
+      "likes": 0
     },
     {
-      "likes": 3,
-      "id": "65d4"
+      "id": "08af",
+      "title": "Fitness and Wellbeing",
+      "content": " Regular exercise is essential for a healthy lifestyle. Whether it’s yoga, running, or weightlifting, finding an activity you enjoy can keep you motivated.",
+      "likes": 0
     },
     {
-      "likes": 6,
-      "id": "79d6"
+      "id": "a24f",
+      "title": "The Power of Reading",
+      "content": " Reading expands your knowledge and creativity. It transports you to different worlds and introduces you to diverse perspectives.",
+      "likes": 0
     },
     {
-      "likes": 7,
-      "id": "6466"
+      "id": "3388",
+      "title": "Sustainability in Everyday Life",
+      "content": "Living sustainably is crucial for the planet's future. Small changes, like reducing waste and recycling, can make a big difference.",
+      "likes": 0
     },
     {
-      "likes": null,
-      "id": "dbb9"
+      "id": "6926",
+      "title": "Mastering Time Management",
+      "content": "Time management skills are essential for productivity. Prioritizing tasks and setting goals can help you make the most of your time.",
+      "likes": 0
     },
     {
-      "likes": null,
-      "id": "fe27"
+      "id": "33e6",
+      "title": "Embracing Change",
+      "content": " Change can be daunting, but it is often necessary for growth. Embracing change can lead to new opportunities and personal development.",
+      "likes": 0
+    }
+  ],
+  "comments": [
+    {
+      "id": "95b6",
+      "postId": "3b81",
+      "text": "Cool!"
     },
     {
-      "likes": null,
-      "id": "08c4"
-    },
-    {
-      "likes": null,
-      "id": "f98d"
-    },
-    {
-      "likes": null,
-      "id": "6fc8"
-    },
-    {
-      "likes": null,
-      "id": "e52b"
+      "id": "c475",
+      "postId": "d340",
+      "text": "Intersting!"
     }
   ]
 }

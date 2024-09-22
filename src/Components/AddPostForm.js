@@ -6,7 +6,7 @@ export default function AddPostForm({ onAdd }){
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ title, content });
+    onAdd({ title, content,likes:0 });
     setTitle('');
     setContent('');
   };
@@ -25,7 +25,7 @@ export default function AddPostForm({ onAdd }){
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Summary"
+        placeholder="Content"
         className="block w-full mt-2 p-2 border border-gray-300 rounded"
         required/>
       <button
