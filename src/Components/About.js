@@ -10,7 +10,7 @@ export default function About(){
         With a strong foundation in React, I enjoy building user-friendly interfaces and crafting seamless user experiences. I'm constantly exploring new tools and frameworks to enhance my skill set and stay up-to-date with the latest industry trends.
       </p>
       <p className="text-lg text-gray-700">
-        Feel free to connect with me on <a href="http://www.GitHub.com/wissam1111" className="text-blue-600 underline">GitHub</a>, or <a href="www.instagram.com/wissam.jamous" className="text-blue-600 underline">Instagram</a>, or drop me a message through the <a href="/contact" className="text-blue-600 underline">Contact</a> page. I'm always open to collaborating on exciting projects and learning new things.
+        Feel free to connect with me on <a href="http://www.GitHub.com/wissam1111" className="text-blue-600 underline">GitHub</a>, or <a href="http://www.instagram.com/wissam.jamous" className="text-blue-600 underline">Instagram</a>, or drop me a message through the <a href="/contact" className="text-blue-600 underline">Contact</a> page. I'm always open to collaborating on exciting projects and learning new things.
       </p>
     </div>
   )

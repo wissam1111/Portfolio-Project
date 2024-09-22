@@ -15,7 +15,6 @@ import Weather from './Components/Weather';
 
 export default function App(){
   const [posts, setPosts] = useState([]);
- const [comment,setComments] = useState([]);
 
 
 useEffect(() => {
@@ -28,31 +27,9 @@ useEffect(() => {
     }
   }
 
-    async function fetchComments() {
-      try{
-      const response = await axios.get('http://localhost:5000/comments');
-      setComments(response.data);
-    }catch(error){
-      console.error('Error fetching comments',error);
-    }
-  }
+
  fetchPosts();
- fetchComments();
 },[]);
-
-  useEffect(()=>{
-  const intervalId = setInterval(async()=>{
-    try{
-      const response = await axios.get('http://localhost:5000/comments');
-      setComments(response.data);
-    }catch(error){
-      console.error('Error fetching comments',error);
-    }
-  },5000)
-
-    return ()=>clearInterval(intervalId);
-  },[]);
-
 
 
 
@@ -71,8 +48,7 @@ useEffect(() => {
       <ProfileCard/>
       
       <main className="p-4">
-      <Weather/>
-
+      
 
       <Routes>
         <Route path='/' element={<Home/>}/>
