@@ -1,10 +1,10 @@
 import BlogPostPreview from "./BlogPostPreview";
 import Weather from "./Weather";
+
 export default function Home() {
   return (
-    
     <div className="px-4">
-      <Weather/>
+      <Weather />
       <h1 className="text-center text-4xl font-semibold text-blue-800 mt-10">
         Recent Blog
       </h1>
@@ -13,16 +13,19 @@ export default function Home() {
         <BlogPostPreview
           title="How to Get Started with React: A Beginner’s Guide"
           content="Cover the basics of setting up a React project, creating components, and managing state. Include code examples and best practices for newcomers."
+          showLikes={false}
         />
 
         <BlogPostPreview
           title="Exploring Tailwind CSS: A Comprehensive Tutorial"
           content="Provide an in-depth look at Tailwind CSS, including how to install it, its utility-first approach, and examples of building responsive designs."
+          showLikes={false} 
         />
 
         <BlogPostPreview
           title="The Importance of Responsive Design in Modern Web Development"
           content="Discuss why responsive design is crucial, techniques for creating responsive layouts, and tools for testing responsiveness."
+          showLikes={false} 
         />
       </div>
     </div>

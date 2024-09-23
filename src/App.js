@@ -11,27 +11,9 @@ import PageNotFound from './Components/PageNotFound';
 import Blog from './Components/Blog';
 import Home from './Components/Home';
 import AddPost from './Components/AddPost';
-import Weather from './Components/Weather';
 
 export default function App(){
   const [posts, setPosts] = useState([]);
-
-
-useEffect(() => {
-  async function fetchPosts() {
-    try {
-      const response = await axios.get('http://localhost:5000/posts');
-      setPosts(response.data); // Set posts from the response
-    } catch (error) {
-      console.error('Error fetching posts', error);
-    }
-  }
-
-
- fetchPosts();
-},[]);
-
-
 
   const handleAddPost = async (newPost) => {
     try {

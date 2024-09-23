@@ -10,13 +10,13 @@
       "id": "d340",
       "title": "Exploring New Technologies",
       "content": "In today's rapidly changing world, technology is evolving at an unprecedented rate. Exploring new technologies can open up exciting opportunities and innovations.",
-      "likes": 1
+      "likes": 3
     },
     {
       "id": "4b31",
       "title": "The Importance of Mental Health",
       "content": "Mental health is just as important as physical health. Taking care of your mind through self-care, therapy, and community support can lead to a fulfilling life.",
-      "likes": 2
+      "likes": 3
     },
     {
       "id": "301f",
@@ -46,7 +46,7 @@
       "id": "3388",
       "title": "Sustainability in Everyday Life",
       "content": "Living sustainably is crucial for the planet's future. Small changes, like reducing waste and recycling, can make a big difference.",
-      "likes": 0
+      "likes": 1
     },
     {
       "id": "6926",
@@ -71,6 +71,11 @@
       "id": "c475",
       "postId": "d340",
       "text": "Intersting!"
+    },
+    {
+      "id": "f7a3",
+      "postId": "d340",
+      "text": "good"
     }
   ]
 }

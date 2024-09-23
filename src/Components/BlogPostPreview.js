@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function BlogPostPreview({ id, title, content, likes, onLike }) {
-  const [currentLikes, setCurrentLikes] = useState(likes || 0); // Initialize likes with props
+function BlogPostPreview({ id, title, content, likes, onLike, showLikes = true }) { // Added showLikes prop
+  const [currentLikes, setCurrentLikes] = useState(likes || 0);
 
   useEffect(() => {
-    // Fetch the current likes when the component mounts
     const fetchLikes = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/posts/${id}`);
@@ -22,10 +21,10 @@ function BlogPostPreview({ id, title, content, likes, onLike }) {
 
     try {
       await axios.put(`http://localhost:5000/posts/${id}`, {
-        likes: updatedLikes, // Update the likes count
+        likes: updatedLikes,
       });
-      setCurrentLikes(updatedLikes); // Update the state with new likes
-      onLike(id, updatedLikes); // Call the onLike function passed from Blog
+      setCurrentLikes(updatedLikes);
+      onLike(id, updatedLikes);
     } catch (error) {
       console.error("Error updating likes:", error);
     }
@@ -37,13 +36,15 @@ function BlogPostPreview({ id, title, content, likes, onLike }) {
         <h2 className="text-2xl text-center font-semibold mb-2 w-full md:w-72">{title}</h2>
       </div>
       <p className="text-gray-700 mb-4 text-center max-w-full md:max-w-96">{content}</p>
-      <button
-        onClick={handleLike}
-        className="flex items-center justify-center mt-2 text-blue-500"
-      >
-        <i className="fa-solid fa-thumbs-up" style={{ fontSize: "26px" }}></i>
-        <span className="text-lg ml-1">{currentLikes}</span>
-      </button>
+      {showLikes && (
+        <button
+          onClick={handleLike}
+          className="flex items-center justify-center mt-2 text-blue-500"
+        >
+          <i className="fa-solid fa-thumbs-up" style={{ fontSize: "26px" }}></i>
+          <span className="text-lg ml-1">{currentLikes}</span>
+        </button>
+      )}
     </div>
   );
 }

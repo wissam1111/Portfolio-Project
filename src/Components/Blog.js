@@ -62,7 +62,6 @@ const Blog = () => {
       postId,
       text: commentText,
     };
-
     try {
       const response = await axios.post('http://localhost:5000/comments', commentData);
       setComments(prevComments => ({
@@ -76,7 +75,7 @@ const Blog = () => {
   };
 
   const handleCommentChange = (postId, value) => {
-    setNewComments(prev => ({ ...prev, [postId]: value })); // Update the specific post's comment input
+    setNewComments(prev => ({ ...prev, [postId]: value })); // Update the specific post's comment input to ensure each comment specifi for each post
   };
 
   const filteredPosts = posts.filter(post => (
