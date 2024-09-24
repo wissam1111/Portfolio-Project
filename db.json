@@ -4,7 +4,7 @@
       "id": "3b81",
       "title": " The Beauty of Nature",
       "content": "Nature is a wonderful source of inspiration. From majestic mountains to serene lakes, the beauty of the natural world can be a soothing escape from daily life.",
-      "likes": 2
+      "likes": 9
     },
     {
       "id": "d340",
@@ -40,7 +40,7 @@
       "id": "a24f",
       "title": "The Power of Reading",
       "content": " Reading expands your knowledge and creativity. It transports you to different worlds and introduces you to diverse perspectives.",
-      "likes": 0
+      "likes": 5
     },
     {
       "id": "3388",
@@ -52,13 +52,19 @@
       "id": "6926",
       "title": "Mastering Time Management",
       "content": "Time management skills are essential for productivity. Prioritizing tasks and setting goals can help you make the most of your time.",
-      "likes": 0
+      "likes": 8
     },
     {
       "id": "33e6",
       "title": "Embracing Change",
       "content": " Change can be daunting, but it is often necessary for growth. Embracing change can lead to new opportunities and personal development.",
-      "likes": 0
+      "likes": 3
+    },
+    {
+      "id": "4946",
+      "title": "fiwjf",
+      "content": "jviwejv",
+      "likes": 4
     }
   ],
   "comments": [
@@ -76,6 +82,49 @@
       "id": "f7a3",
       "postId": "d340",
       "text": "good"
+    },
+    {
+      "id": "5a36",
+      "postId": "7155",
+      "text": "kf"
+    },
+    {
+      "id": "4193",
+      "4b31": "Cool"
+    },
+    {
+      "id": "3ca2",
+      "4b31": "c"
+    },
+    {
+      "id": "ff28",
+      "postId": "4b31",
+      "text": "cool"
+    },
+    {
+      "id": "47bb",
+      "postId": "a24f",
+      "text": "i"
+    },
+    {
+      "id": "7cf7",
+      "postId": "a1ad",
+      "text": "j"
+    },
+    {
+      "id": "c537",
+      "postId": "6d3d",
+      "text": "uhu"
+    },
+    {
+      "id": "c3ea",
+      "postId": "6d3d",
+      "text": "j"
+    },
+    {
+      "id": "8f36",
+      "postId": "4946",
+      "text": "ij"
     }
   ]
 }

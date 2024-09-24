@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import BlogPostPreview from './BlogPostPreview';
-import axios from 'axios';
-import Search from './Search';
+import BlogPostPreview from '../BlogPost/BlogPostPreview';
+import Search from '../Search/Search';
+import { createComment,fetchComments,fetchPosts,updatedPost } from '../../Api/ApiCalls';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -9,61 +9,61 @@ const Blog = () => {
   const [comments, setComments] = useState({});
   const [newComments, setNewComments] = useState({}); // Object to store comments for each post
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/posts');
-        setPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
 
-    const fetchComments = async () => {
+  useEffect(() => {
+    const loadPostsAndComments = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/comments');
-        const groupedComments = response.data.reduce((acc, comment) => {
+        const postResponse = await fetchPosts();
+        setPosts(postResponse.data);
+        const commentResponse = await fetchComments();
+        const groupedComments = commentResponse.data.reduce((acc, comment) => {
           (acc[comment.postId] = acc[comment.postId] || []).push(comment);
           return acc;
         }, {});
         setComments(groupedComments);
       } catch (error) {
-        console.error("Error fetching comments:", error);
+        console.error("Error fetching posts:", error);
       }
     };
+    loadPostsAndComments();
+ }, []);
 
-    fetchPosts();
-    fetchComments();
-  }, []);
+
 
   const updateLikes = async (postId, updatedLikes) => {
     try {
       const postToUpdate = posts.find(post => post.id === postId);
       if (postToUpdate) {
-        const updatedPost = { ...postToUpdate, likes: updatedLikes };
-        await axios.put(`http://localhost:5000/posts/${postId}`, updatedPost);
+        const updatedPostData = { ...postToUpdate, likes: updatedLikes };
+        await updatedPost(postId,updatedPostData);
         setPosts(posts.map(post => post.id === postId ? updatedPost : post));
+
+        const postResponse = await fetchPosts();
+        setPosts(postResponse.data);
       }
     } catch (error) {
       console.error("Error updating likes:", error);
     }
   };
 
+
+
   const handleSearch = (query) => {
     setSearchTerm(query);
   };
+
+
 
   const handleCommentSubmit = async (postId, e) => {
     e.preventDefault();
     const commentText = newComments[postId] || ''; // Get the comment for the specific post
     if (!commentText) return;
-
-    const commentData = {
+    const newComment = {
       postId,
       text: commentText,
-    };
+  };
     try {
-      const response = await axios.post('http://localhost:5000/comments', commentData);
+      const response = await createComment(newComment);
       setComments(prevComments => ({
         ...prevComments,
         [postId]: [...(prevComments[postId] || []), response.data],
@@ -74,14 +74,22 @@ const Blog = () => {
     }
   };
 
+
+
+
   const handleCommentChange = (postId, value) => {
     setNewComments(prev => ({ ...prev, [postId]: value })); // Update the specific post's comment input to ensure each comment specifi for each post
   };
+
+
+
 
   const filteredPosts = posts.filter(post => (
     (post.title && post.title.toLowerCase().includes(searchTerm.toLowerCase())) || 
     (post.content && post.content.toLowerCase().includes(searchTerm.toLowerCase()))
   ));
+
+
 
   return (
     <div className="container mx-auto px-4 py-6">

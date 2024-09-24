@@ -1,28 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { updatedPost } from '../../Api/ApiCalls';
 
 function BlogPostPreview({ id, title, content, likes, onLike, showLikes = true }) { // Added showLikes prop
-  const [currentLikes, setCurrentLikes] = useState(likes || 0);
+  const [currentLikes, setCurrentLikes] = useState(likes);
 
-  useEffect(() => {
-    const fetchLikes = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/posts/${id}`);
-        setCurrentLikes(response.data.likes);
-      } catch (error) {
-        console.error("Error fetching likes:", error);
-      }
-    };
-    fetchLikes();
-  }, [id]);
 
   const handleLike = async () => {
     const updatedLikes = currentLikes + 1;
 
     try {
-      await axios.put(`http://localhost:5000/posts/${id}`, {
-        likes: updatedLikes,
-      });
+      await updatedPost(id,{likes:updatedLikes});
       setCurrentLikes(updatedLikes);
       onLike(id, updatedLikes);
     } catch (error) {

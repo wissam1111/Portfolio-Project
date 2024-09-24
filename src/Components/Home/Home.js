@@ -1,5 +1,5 @@
-import BlogPostPreview from "./BlogPostPreview";
-import Weather from "./Weather";
+import BlogPostPreview from "../BlogPost/BlogPostPreview.js";
+import Weather from "../Weather/Weather.js";
 
 export default function Home() {
   return (

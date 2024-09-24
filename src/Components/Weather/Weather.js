@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
+import { fetchWeather } from '../../Api/ApiCalls';
 const Weather = () => {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState('');
-  const weatherApi = 'b5e30b360a02321e8c98d81543f062c0';
 
   useEffect(() => {
-    const fetchWeather = async () => {
+    const loadWeather = async () => {
       if (!city) return; 
       try {
-        const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApi}`);
+        const response = await fetchWeather(city);
         setWeather(response.data);
       } catch (error) {
         console.error('Error fetching weather data', error);
       }
     };
-    fetchWeather();
+    loadWeather();
   }, [city]);
 
   return (
@@ -39,7 +37,7 @@ const Weather = () => {
           <p className="text-gray-600 mt-1">Wind Speed: {weather.wind.speed} m/s</p>
         </div>
       ) : (
-        city === '' ? null : <p className="text-gray-500">Enter a city to get weather information.</p>
+        city === '' ? <p className="text-gray-500">Enter a city to get weather information.</p> : null
       )}
     </div>
   );

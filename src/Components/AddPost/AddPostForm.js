@@ -12,8 +12,9 @@ export default function AddPostForm({ onAdd }){
   };
 
   return (
+  <div>
+    <h2 className="text-3xl font-semibold text-blue-600 text-center mb-5 mt-5">Add New Post</h2>
     <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-4 mb-4">
-      <h2 className="text-xl font-semibold">Add New Post</h2>
       <input
         type="text"
         value={title}
@@ -34,6 +35,7 @@ export default function AddPostForm({ onAdd }){
         Add Post
       </button>
     </form>
+    </div>
   );
 };
 
