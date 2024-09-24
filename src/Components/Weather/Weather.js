@@ -25,7 +25,7 @@ const Weather = () => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city name"
-        className="border border-gray-300 rounded-lg px-4 py-2 mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="border border-gray-300 rounded-lg px-4 py-2 mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
       />
 
       {weather && city ? ( // Show weather only if city is not empty

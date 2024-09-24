@@ -106,7 +106,7 @@ const Blog = () => {
                 onLike={updateLikes} 
               />
               <div className="mt-4">
-                <h3 className="text-lg font-semibold">Comments</h3>
+                <h3 className="text-lg font-semibold text-gray-700">Comments</h3>
                 <ul className="list-disc pl-5">
                   {(comments[post.id] || []).map(comment => (
                     <li key={comment.id} className="text-gray-600">{comment.text}</li>
@@ -118,7 +118,7 @@ const Blog = () => {
                     value={newComments[post.id] || ''}
                     onChange={(e) => handleCommentChange(post.id, e.target.value)}
                     placeholder="Add a comment"
-                    className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                    className="border border-gray-300 rounded-lg px-4 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                   <button type="submit" className="ml-2 bg-blue-500 text-white rounded-lg px-4 py-2">Submit</button>
                 </form>

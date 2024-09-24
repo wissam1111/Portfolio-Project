@@ -20,7 +20,7 @@ function BlogPostPreview({ id, title, content, likes, onLike, showLikes = true }
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 mt-11 flex flex-col items-center justify-center mx-5 md:mx-0">
       <div className="flex flex-col items-center justify-center mb-6 w-full">
-        <h2 className="text-2xl text-center font-semibold mb-2 w-full md:w-72">{title}</h2>
+        <h2 className="text-gray-700 text-2xl text-center font-semibold mb-2 w-full md:w-72">{title}</h2>
       </div>
       <p className="text-gray-700 mb-4 text-center max-w-full md:max-w-96">{content}</p>
       {showLikes && (

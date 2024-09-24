@@ -46,7 +46,7 @@
       "id": "3388",
       "title": "Sustainability in Everyday Life",
       "content": "Living sustainably is crucial for the planet's future. Small changes, like reducing waste and recycling, can make a big difference.",
-      "likes": 1
+      "likes": 4
     },
     {
       "id": "6926",
@@ -60,7 +60,6 @@
       "content": " Change can be daunting, but it is often necessary for growth. Embracing change can lead to new opportunities and personal development.",
       "likes": 3
     }
-
   ],
   "comments": [
     {
@@ -120,6 +119,11 @@
       "id": "8f36",
       "postId": "4946",
       "text": "ij"
+    },
+    {
+      "id": "ca9b",
+      "postId": "6926",
+      "text": "lde"
     }
   ]
 }

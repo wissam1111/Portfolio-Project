@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="px-4">
       <Weather />
-      <h1 className="text-center text-4xl font-semibold text-blue-800 mt-10">
+      <h1 className="text-center text-4xl font-semibold mt-10">
         Recent Blog
       </h1>
 
