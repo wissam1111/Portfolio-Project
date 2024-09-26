@@ -3,15 +3,21 @@ import { fetchWeather } from '../../Api/ApiCalls';
 const Weather = () => {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState('');
+  const [error,setError] =useState('')
 
   useEffect(() => {
     const loadWeather = async () => {
       if (!city) return; 
       try {
         const response = await fetchWeather(city);
+        if(response.error){
+          setError(response.error);
+          return;
+        }
         setWeather(response.data);
       } catch (error) {
         console.error('Error fetching weather data', error);
+        setError('Failed to fetch weather. Please try again later.');
       }
     };
     loadWeather();

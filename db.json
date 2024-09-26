@@ -4,61 +4,78 @@
       "id": "3b81",
       "title": " The Beauty of Nature",
       "content": "Nature is a wonderful source of inspiration. From majestic mountains to serene lakes, the beauty of the natural world can be a soothing escape from daily life.",
-      "likes": 9
+      "likes": 9,
+      "date": "2024-09-14T09:38:38.690Z"
     },
     {
       "id": "d340",
       "title": "Exploring New Technologies",
       "content": "In today's rapidly changing world, technology is evolving at an unprecedented rate. Exploring new technologies can open up exciting opportunities and innovations.",
-      "likes": 3
+      "likes": 3,
+      "date": "2024-09-19T09:38:38.690Z"
     },
     {
       "id": "4b31",
       "title": "The Importance of Mental Health",
       "content": "Mental health is just as important as physical health. Taking care of your mind through self-care, therapy, and community support can lead to a fulfilling life.",
-      "likes": 3
+      "likes": 3,
+      "date": "2024-09-20T09:38:38.690Z"
     },
     {
       "id": "301f",
       "title": "Travel: A Journey of Discovery",
       "content": "Traveling exposes you to new cultures, cuisines, and experiences. Each journey brings new lessons and memories that enrich our lives.",
-      "likes": 3
+      "likes": 3,
+      "date": "2024-09-21T09:38:38.690Z"
     },
     {
       "id": "7155",
       "title": "The Art of Cooking",
       "content": "Cooking is an art that brings people together. Experimenting with flavors and techniques can turn simple ingredients into a masterpiece.\n",
-      "likes": 0
+      "likes": 0,
+      "date": "2024-09-24T09:38:38.690Z"
     },
     {
       "id": "08af",
       "title": "Fitness and Wellbeing",
       "content": " Regular exercise is essential for a healthy lifestyle. Whether it’s yoga, running, or weightlifting, finding an activity you enjoy can keep you motivated.",
-      "likes": 0
+      "likes": 1,
+      "date": "2024-09-22T09:38:38.690Z"
     },
     {
       "id": "a24f",
       "title": "The Power of Reading",
       "content": " Reading expands your knowledge and creativity. It transports you to different worlds and introduces you to diverse perspectives.",
-      "likes": 5
+      "likes": 5,
+      "date": "2024-09-23T09:30:38.690Z"
     },
     {
       "id": "3388",
       "title": "Sustainability in Everyday Life",
       "content": "Living sustainably is crucial for the planet's future. Small changes, like reducing waste and recycling, can make a big difference.",
-      "likes": 4
+      "likes": 4,
+      "date": "2024-09-25T09:35:38.690Z"
     },
     {
       "id": "6926",
       "title": "Mastering Time Management",
       "content": "Time management skills are essential for productivity. Prioritizing tasks and setting goals can help you make the most of your time.",
-      "likes": 8
+      "likes": 8,
+      "date": "2024-09-25T09:38:10.690Z"
     },
     {
       "id": "33e6",
       "title": "Embracing Change",
       "content": " Change can be daunting, but it is often necessary for growth. Embracing change can lead to new opportunities and personal development.",
-      "likes": 3
+      "likes": 3,
+      "date": "2024-09-25T09:38:20.690Z"
+    },
+    {
+      "id": "9a81",
+      "title": "Sorted Date",
+      "content": "Making the most recent posts appear first",
+      "likes": 9,
+      "date": "2024-09-25T09:38:31.690Z"
     }
   ],
   "comments": [
@@ -124,6 +141,26 @@
       "id": "ca9b",
       "postId": "6926",
       "text": "lde"
+    },
+    {
+      "id": "27fe",
+      "postId": "7a3b",
+      "text": "ik"
+    },
+    {
+      "id": "1bbb",
+      "postId": "9a81",
+      "text": "o"
+    },
+    {
+      "id": "2287",
+      "postId": "9a81",
+      "text": "done!"
+    },
+    {
+      "id": "9201",
+      "postId": "51a0",
+      "text": "j"
     }
   ]
 }

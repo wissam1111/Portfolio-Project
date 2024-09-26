@@ -9,6 +9,7 @@ export default function BlogPost({ title, content }) {
       <p className="text-gray-600 leading-relaxed sm:text-sm md:text-base lg:text-lg">
         {content}
       </p>
+      
     </div>
   );
 }

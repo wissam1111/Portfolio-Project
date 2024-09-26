@@ -12,14 +12,16 @@ import Blog from './Components/BlogPost/Blog';
 import Home from './Components/Home/Home';
 import { createPost } from './Api/ApiCalls';
 import { ThemeProvider } from './Context/ThemeContext'; // Correct path for ThemeContext
-
+import { useDispatch,useSelector } from 'react-redux';
+import { addPost } from './Reducer/Reducer';
 export default function App() {
-  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts); // Access posts from the Redux store
 
   const handleAddPost = async (newPost) => {
     try {
       const response = await createPost(newPost);
-      setPosts([...posts, response.data]);
+      dispatch(addPost(response.data)); // Dispatch the addPost action
     } catch (error) {
       console.error('Error adding post:', error);
     }
