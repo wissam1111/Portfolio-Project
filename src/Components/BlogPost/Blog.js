@@ -10,7 +10,6 @@ import Spinner from '../Spinner/Spinner';
 const Blog = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
-  const [searchTerm, setSearchTerm] = useState('');
   const [comments, setComments] = useState({});
   const [newComments, setNewComments] = useState({});
   const [error, setError] = useState('');
@@ -21,9 +20,10 @@ const Blog = () => {
 
   // Extract the current page and limit from the query params or use defaults
   const currentPage = parseInt(searchParams.get('page')) || 1;
-  const postsPerPage = parseInt(searchParams.get('limit')) || 5;
+  const postsPerPage = parseInt(searchParams.get('limit')) || 5; // Default limit to 5
+  const searchTerm = searchParams.get('search') || '';
 
-  // Fetch posts and comments when page or limit changes
+  // Fetch posts and comments when page, limit, or search term changes
   useEffect(() => {
     const loadPostsAndComments = async () => {
       setLoading(true); // Start loading
@@ -73,8 +73,9 @@ const Blog = () => {
 
   // Handle search input
   const handleSearch = (query) => {
-    setSearchTerm(query);
+    setSearchParams({ page: 1, limit: postsPerPage, search: query }); // Reset to first page on search
   };
+
 
   // Submit a new comment
   const handleCommentSubmit = async (postId, e) => {
@@ -112,7 +113,6 @@ const Blog = () => {
     (post.content && post.content.toLowerCase().includes(searchTerm.toLowerCase()))
   ));
 
-  // Pagination logic: Display only posts for the current page
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const displayedPosts = filteredPosts.slice(
     (currentPage - 1) * postsPerPage, currentPage * postsPerPage
@@ -120,8 +120,7 @@ const Blog = () => {
 
   // Handle page change
   const handlePageChange = (pageNumber) => {
-    // Update the URL with the new page number and the current limit
-    setSearchParams({ page: pageNumber, limit: postsPerPage });
+    setSearchParams({ page: pageNumber, limit: postsPerPage, search: searchTerm });
   };
 
   return (
@@ -132,6 +131,7 @@ const Blog = () => {
       {/* Search Component */}
       <Search onSearch={handleSearch} />
       
+
       {/* Loader */}
       {loading ? (
         <Spinner />
