@@ -16,7 +16,7 @@ const Search = ({ onSearch }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search blog posts"
-        className="border p-2 mb-2"
+        className="border p-2 mb-2 text-black"
       />
       
       <button type="submit" className="p-2 bg-blue-500 text-white mb-2 rounded-md" >Search</button>
