@@ -8,6 +8,7 @@ import { setPosts } from '../../Reducer/Reducer';
 import Spinner from '../Spinner/Spinner';
 
 const Blog = () => {
+
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const [comments, setComments] = useState({});
@@ -23,21 +24,20 @@ const Blog = () => {
   const postsPerPage = parseInt(searchParams.get('limit')) || 3; // Default limit to 3
   const searchTerm = searchParams.get('search') || '';
 
-  // Fetch posts and comments when page, limit, or search term changes
   useEffect(() => {
     const loadPostsAndComments = async () => {
-      setLoading(true); // Start loading
+      setLoading(true);
       try {
-        // Fetch posts with pagination parameters from URL query params
-        const postResponse = await fetchPosts(currentPage, postsPerPage);
-        if (postResponse.error) {
-          setError(postResponse.error);
+        // Fetch posts with pagination and search parameters
+        const postResponse = await fetchPosts(currentPage, postsPerPage,searchTerm);
+        if (postResponse.status !== 200) {
+          setError('Failed to fetch posts.');
           return;
         }
 
         const sortedPosts = postResponse.data.sort((a, b) => new Date(b.date) - new Date(a.date));
         dispatch(setPosts(sortedPosts)); // Set posts in Redux state
-
+  
         // Fetch comments
         const commentResponse = await fetchComments();
         if (commentResponse.error) {
@@ -48,16 +48,17 @@ const Blog = () => {
           (acc[comment.postId] = acc[comment.postId] || []).push(comment);
           return acc;
         }, {});
-        setComments(groupedComments); // Set comments for each post
+        setComments(groupedComments);
       } catch (error) {
         setError('An unexpected error occurred. Please try again later.');
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
+  
     loadPostsAndComments();
-  }, [dispatch, currentPage, postsPerPage]); // Run effect when page or limit changes
-
+  }, [dispatch, currentPage, postsPerPage, searchTerm]);
+  
   // Update likes for a post
   const updateLikes = async (postId, updatedLikes) => {
     try {
@@ -107,38 +108,21 @@ const Blog = () => {
     setNewComments((prev) => ({ ...prev, [postId]: value }));
   };
 
-  // Filter posts based on search term
-  const filteredPosts = posts.filter((post) => (
-    (post.title && post.title.toLowerCase().includes(searchTerm.toLowerCase())) || 
-    (post.content && post.content.toLowerCase().includes(searchTerm.toLowerCase()))
-  ));
+  const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate total pages based on fetched posts
 
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-  const displayedPosts = filteredPosts.slice(
-    (currentPage - 1) * postsPerPage, currentPage * postsPerPage
-  );
 
   // Handle page change
   const handlePageChange = (pageNumber) => {
     setSearchParams({ page: pageNumber, limit: postsPerPage, search: searchTerm });
   };
 
-  useEffect(() => {
-    if (searchTerm && displayedPosts.length === 0) {
-      setError(`No posts found for "${searchTerm}".`);
-    } else {
-      setError(''); // Clear error message if there are posts
-    }
-  }, [searchTerm, displayedPosts]);
-
   return (
     <div className="container mx-auto px-4 py-6">
       {/* Error message */}
       {error && <p className="text-red-600 text-center mt-2 font-bold mb-6">{error}</p>}
-      
+
       {/* Search Component */}
       <Search onSearch={handleSearch} />
-      
 
       {/* Loader */}
       {loading ? (
@@ -146,35 +130,16 @@ const Blog = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {/* If there are posts */}
-          {displayedPosts.length > 0 ? (
-            displayedPosts.map((post) => (
+          {posts.length > 0 ? (
+            posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage).map((post) => (
               <div key={post.id} className="bg-white p-6 rounded-lg shadow-lg mt-11">
-                <BlogPostPreview 
+                <BlogPostPreview
                   id={post.id}
                   title={post.title}
                   content={post.content}
                   likes={post.likes}
                   date={post.date}
-                  onLike={updateLikes}
                 />
-                <div className="mt-4">
-                  <h3 className="text-lg font-semibold text-gray-700">Comments</h3>
-                  <ul className="list-disc pl-5">
-                    {(comments[post.id] || []).map((comment) => (
-                      <li key={comment.id} className="text-gray-600">{comment.text}</li>
-                    ))}
-                  </ul>
-                  <form onSubmit={(e) => handleCommentSubmit(post.id, e)} className="mt-2 flex">
-                    <input
-                      type="text"
-                      value={newComments[post.id] || ''}
-                      onChange={(e) => handleCommentChange(post.id, e.target.value)}
-                      placeholder="Add a comment"
-                      className="border border-gray-300 rounded-lg px-4 py-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    />
-                    <button type="submit" className="ml-2 bg-blue-500 text-white rounded-lg px-4 py-2">Submit</button>
-                  </form>
-                </div>
               </div>
             ))
           ) : (
