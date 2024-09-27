@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { updatedPost } from '../../Api/ApiCalls';
 
 function BlogPostPreview({ id, title, content, likes,date, onLike, showLikes = true }) { // Added showLikes prop

@@ -20,7 +20,7 @@ const Blog = () => {
 
   // Extract the current page and limit from the query params or use defaults
   const currentPage = parseInt(searchParams.get('page')) || 1;
-  const postsPerPage = parseInt(searchParams.get('limit')) || 5; // Default limit to 5
+  const postsPerPage = parseInt(searchParams.get('limit')) || 3; // Default limit to 3
   const searchTerm = searchParams.get('search') || '';
 
   // Fetch posts and comments when page, limit, or search term changes
@@ -122,6 +122,14 @@ const Blog = () => {
   const handlePageChange = (pageNumber) => {
     setSearchParams({ page: pageNumber, limit: postsPerPage, search: searchTerm });
   };
+
+  useEffect(() => {
+    if (searchTerm && displayedPosts.length === 0) {
+      setError(`No posts found for "${searchTerm}".`);
+    } else {
+      setError(''); // Clear error message if there are posts
+    }
+  }, [searchTerm, displayedPosts]);
 
   return (
     <div className="container mx-auto px-4 py-6">

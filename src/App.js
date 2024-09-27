@@ -1,9 +1,9 @@
 // src/App.js
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Common/Header';
 import Footer from './Components/Common/Footer';
-import ProfileCard from './Components/Common/ProfileCard';
+import ProfileCard from './Components/Common/ProfileCard.tsx';
 import AddPostForm from './Components/AddPost/AddPostForm';
 import Contact from './Components/Contact/Contact';
 import About from './Components/About/About';
@@ -14,6 +14,7 @@ import { createPost } from './Api/ApiCalls';
 import { ThemeProvider } from './Context/ThemeContext'; // Correct path for ThemeContext
 import { useDispatch,useSelector } from 'react-redux';
 import { addPost } from './Reducer/Reducer';
+
 export default function App() {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts); // Access posts from the Redux store
@@ -31,7 +32,17 @@ export default function App() {
     <ThemeProvider>
       <Router>
         <Header />
-        <ProfileCard />
+        <ProfileCard 
+        name='Wissam Jamous'
+        description='A Junior Frond End Developper'
+        facebookUrl="https://www.facebook.com/wissam.jamous.1?mibextid=ZbWKwL"
+        instagramUrl="https://www.instagram.com/wissam.jamous"
+        githubUrl="https://www.github.com/wissam1111"
+        imgUrl={require('./Assets/31AWFCkio3L._AC_UF1000,1000_QL80_.jpg')}
+        
+        
+      
+        />
 
         <main className="p-4">
           <Routes>
