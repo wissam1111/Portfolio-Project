@@ -7,6 +7,7 @@ import Search from '../Search/Search';
 import { createComment, fetchComments, fetchPosts } from '../../Api/ApiCalls';
 import { setPosts } from '../../Reducer/Reducer';
 import Spinner from '../Spinner/Spinner';
+import { fetchTotalPostsCount } from '../../Api/ApiCalls';
 
 const Blog = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Blog = () => {
   const [newComments, setNewComments] = useState({});
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [totalPosts, setTotalPosts] = useState(0); // State to hold total posts count
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
@@ -28,18 +30,17 @@ const Blog = () => {
       try {
         // Fetch posts with pagination and search parameters
         const postResponse = await fetchPosts(currentPage, postsPerPage, titleSearchTerm, contentSearchTerm);
-
-        if (postResponse.status !== 200) {
-          setError('Failed to fetch posts.');
+        const totalResponse = await fetchTotalPostsCount();
+        setTotalPosts(totalResponse);
+        if (!postResponse.data||postResponse.data.length===0) {
+          setError('No posts found.');
           return;
         }
+        const {data,totalPosts} = postResponse;
 
-        if (postResponse.data && Array.isArray(postResponse.data)) {
-          const sortedPosts = postResponse.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const sortedPosts = data.sort((a, b) => new Date(b.date) - new Date(a.date));
           dispatch(setPosts(sortedPosts)); // Set posts in Redux state
-        } else {
-          setError('No posts found.');
-        }
+          setTotalPosts(totalPosts); // Update total posts count
 
         // Fetch comments
         const commentResponse = await fetchComments();
@@ -64,6 +65,8 @@ const Blog = () => {
 
     loadPostsAndComments();
   }, [dispatch, currentPage, postsPerPage, titleSearchTerm, contentSearchTerm]);
+
+
 
   // Update likes for a post
   const updateLikes = async (postId, updatedLikes) => {
@@ -127,20 +130,7 @@ const Blog = () => {
     setNewComments((prev) => ({ ...prev, [postId]: value }));
   };
 
-  // Calculate total pages based on fetched posts
-  const totalPages = Math.ceil(posts.length / postsPerPage);
 
-  // Handle page change
-  const handlePageChange = (pageNumber) => {
-    setSearchParams({ page: pageNumber, limit: postsPerPage, title: titleSearchTerm, content: contentSearchTerm });
-  };
-
-  // Handle Next Page
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setSearchParams({ page: currentPage + 1, limit: postsPerPage, title: titleSearchTerm, content: contentSearchTerm });
-    }
-  };
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -194,25 +184,6 @@ const Blog = () => {
           )}
         </div>
       )}
-
-      {/* Pagination controls */}
-      <div className="flex justify-center mt-6">
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => handlePageChange(index + 1)}
-            className={`mx-1 px-3 py-1 rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button 
-        onClick={handleNextPage} 
-        disabled={currentPage >= totalPages} 
-        className={`mx-1 px-3 py-1 rounded ${currentPage >= totalPages ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-blue-500 text-white'}`}>
-         Next
-        </button>
-        </div>
     </div>
   );
 };

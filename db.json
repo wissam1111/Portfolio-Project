@@ -28,7 +28,6 @@
       "likes": 3,
       "date": "2024-09-21T09:38:38.690Z"
     },
-
     {
       "id": "08af",
       "title": "Fitness and Wellbeing",
@@ -70,6 +69,34 @@
       "content": "Making the most recent posts appear first",
       "likes": 9,
       "date": "2024-09-25T09:38:31.690Z"
+    },
+    {
+      "id": "966f",
+      "title": "ji",
+      "content": "ij",
+      "likes": 0,
+      "date": "2024-09-30T11:46:38.133Z"
+    },
+    {
+      "id": "0b46",
+      "title": "ovre",
+      "content": "vijre",
+      "likes": 0,
+      "date": "2024-09-30T11:47:59.101Z"
+    },
+    {
+      "id": "9a15",
+      "title": "fhweu",
+      "content": "uvhwr",
+      "likes": 0,
+      "date": "2024-09-30T11:48:34.447Z"
+    },
+    {
+      "id": "323b",
+      "title": "ihjiu",
+      "content": "jb",
+      "likes": 0,
+      "date": "2024-09-30T12:01:38.025Z"
     }
 
   ],
@@ -89,7 +116,6 @@
       "postId": "d340",
       "text": "good"
     },
- 
     {
       "id": "4193",
       "4b31": "Cool"
@@ -158,5 +184,40 @@
       "postId": "3388",
       "text": "u"
     }
-  ]
+  ],
+  "data": [
+    {
+      "id": 1,
+      "title": "Post Title 1",
+      "content": "Content of the first post.",
+      "date": "2024-01-01",
+      "likes": 5
+    },
+    {
+      "id": 2,
+      "title": "Post Title 2",
+      "content": "Content of the second post.",
+      "date": "2024-01-02",
+      "likes": 10
+    }
+  ],
+  "totalPosts": {
+    "item": {
+      "item": {
+        "item": {
+          "item": {
+            "item": {
+              "item": 10,
+              "totalPosts": null
+            },
+            "totalPosts": 1
+          },
+          "totalPosts": 2
+        },
+        "totalPosts": 3
+      },
+      "totalPosts": 4
+    },
+    "totalPosts": 5
+  }
 }
