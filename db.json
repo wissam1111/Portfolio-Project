@@ -28,13 +28,7 @@
       "likes": 3,
       "date": "2024-09-21T09:38:38.690Z"
     },
-    {
-      "id": "7155",
-      "title": "The Art of Cooking",
-      "content": "Cooking is an art that brings people together. Experimenting with flavors and techniques can turn simple ingredients into a masterpiece.\n",
-      "likes": 0,
-      "date": "2024-09-24T09:38:38.690Z"
-    },
+
     {
       "id": "08af",
       "title": "Fitness and Wellbeing",
@@ -76,11 +70,8 @@
       "content": "Making the most recent posts appear first",
       "likes": 9,
       "date": "2024-09-25T09:38:31.690Z"
-    },
-    {
-      "likes": 2,
-      "id": "65b7"
     }
+
   ],
   "comments": [
     {
@@ -98,11 +89,7 @@
       "postId": "d340",
       "text": "good"
     },
-    {
-      "id": "5a36",
-      "postId": "7155",
-      "text": "kf"
-    },
+ 
     {
       "id": "4193",
       "4b31": "Cool"
@@ -165,6 +152,11 @@
       "id": "9201",
       "postId": "51a0",
       "text": "j"
+    },
+    {
+      "id": "e01d",
+      "postId": "3388",
+      "text": "u"
     }
   ]
 }

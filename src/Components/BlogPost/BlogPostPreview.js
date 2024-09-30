@@ -28,7 +28,7 @@ function BlogPostPreview({ id, title, content, likes,date, onLike, showLikes = t
       </div>
       <p className="text-gray-700 mb-4 text-center max-w-full md:max-w-96">{content}</p>
       <p className="text-gray-500 text-sm mb-4">{formattedDate}</p>
-      <p className='text-gray-800'>{isExpanded ? content :`${content.substring(0,50)}...`}</p>
+      <p className='text-gray-800'>{isExpanded ? content : (content ? `${content.substring(0, 50)}...` : 'Content not available')}</p>
       <button onClick={toggleExpand} className='text-blue-500 mt-2'>{isExpanded ? 'READ Less':'READ More'}</button>
       {showLikes && (
         <button
