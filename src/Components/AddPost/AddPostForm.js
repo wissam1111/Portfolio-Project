@@ -12,7 +12,7 @@ export default function AddPostForm({ onAdd }){
 
   return (
   <div>
-    <h2 className="text-3xl font-semibold text-center mb-8 mt-5">Add New Post</h2>
+    <h2 className="text-3xl font-bold text-center mb-8 mt-5">Add New Post</h2>
     <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded-lg p-4 mb-4">
       <input
         type="text"

@@ -15,6 +15,7 @@ import { ThemeProvider } from './Context/ThemeContext'; // Correct path for Them
 import { useDispatch,useSelector } from 'react-redux';
 import { addPost } from './Reducer/Reducer';
 
+import ExampleCards from './Components/Common/ProjectCards.tsx';
 export default function App() {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts); // Access posts from the Redux store
@@ -27,7 +28,38 @@ export default function App() {
       console.error('Error adding post:', error);
     }
   };
-
+const projects = [
+  {
+    title:'Project 1',
+    description:'A information about Project 1',
+    image:'https://picsum.photos/400/200'
+  },
+  {
+    title:'Project 2',
+    description:'A information about Project 2',
+    image:'https://picsum.photos/400/200'
+  },
+  {
+    title:'Project 2',
+    description:'A information about Project 3',
+    image:'https://picsum.photos/400/200'
+  },
+  {
+    title:'Project 4',
+    description:'A information about Project 4',
+    image:'https://picsum.photos/400/200'
+  },
+  {
+    title:'Project 5',
+    description:'A information about Project 5',
+    image:'https://picsum.photos/400/200'
+  },
+  {
+    title:'Project 6',
+    description:'A information about Project 6',
+    image:'https://picsum.photos/400/200'    
+  }
+]
   return (
     <ThemeProvider>
       <Router>
@@ -52,6 +84,7 @@ export default function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='*' element={<PageNotFound />} />
             <Route path='/add-post' element={<AddPostForm onAdd={handleAddPost} />} />
+            <Route path='/project-cards' element={<ExampleCards projects={projects}/>}/>
           </Routes>
         </main>
         

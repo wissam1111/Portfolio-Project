@@ -2,6 +2,7 @@ import { FaFacebook, FaGithub, FaInstagram } from 'react-icons/fa';
 import styled from 'styled-components';
 import React from 'react';
 
+
 // Styled components
 const ProfileContainer = styled.div`
   padding: 32px;
@@ -49,19 +50,41 @@ const ProfileDesc = styled.p`
   color: rgb(147 197 253);
 `;
 
-const ProfileIcons = styled.div`
+const ProfileIcons = styled.div
+`
   display: flex;
   align-items: center;
   gap: 96px;
   margin-top: 20px;
+
+  a{
+    transition:transform 0.3s ease-in-out ,color 0.3s ease-in-out !important ;
+
+    &:hover{
+    transform :scale(1.3) !important ;
+    color:rgb(147 197 253) !important ;
+    }
+  }
 `;
 
 const ProfileImage = styled.div`
   display: flex;
   justify-content: center;
+  animation: fadeIn 2.5s ease-in-out;
 
   @media (min-width: 768px) {
     margin-left: 64px;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
