@@ -58,6 +58,11 @@ const projects = [
     title:'Project 6',
     description:'A information about Project 6',
     image:'https://picsum.photos/400/200'    
+  },
+  {
+    title:'Project 7',
+    description:'A information about Project 7',
+    image:'https://picsum.photos/400/200'
   }
 ]
   return (
