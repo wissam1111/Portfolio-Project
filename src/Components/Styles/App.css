@@ -1,0 +1,14 @@
+.button-blog{
+  height: 35px;
+  background-color: rgb(81, 81, 255);
+  color: white;
+  width: 70px;
+  border-radius: 50px;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+}
+.button-blog:hover{
+  opacity: 0.7;
+}
+
+
